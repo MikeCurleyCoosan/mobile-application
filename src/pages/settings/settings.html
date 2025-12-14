@@ -1,0 +1,47 @@
+<!--Header Area of our settings Page-->
+<ion-header>
+  <ion-navbar>
+    <!--Given a title of Settings-->
+    <ion-title>Settings</ion-title>
+  </ion-navbar> 
+</ion-header>
+
+<!--Content Area of our Settings page, given a class name "settings" for css purposes-->
+<ion-content padding class="settings">
+  <!--Using a grid system to display the information on the Settings Page-->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <!--Create an ion item for displaying the city Selected. Using two way data binding here by implementing the ngModel Directive-->
+        <ion-item>
+          <ion-label class="label" Fixed>City</ion-label>
+          <ion-input [(ngModel)]="city" name="city" type="text"></ion-input>
+        </ion-item>
+        <hr>
+        <h3>Settings</h3>
+        <hr>
+        <h4>Units: {{ units }} </h4>
+        <!--using a radio button group to slect units. Default units have being set to Metric-->
+        <ion-list radio-group [(ngModel)]="units" name="units">
+          <ion-item>
+            <ion-label>Standard</ion-label>
+            <ion-radio value="Standard"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Metric</ion-label>
+            <ion-radio value="Metric" checked="true"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Imperial</ion-label>
+            <ion-radio value="Imperial"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <!--When we click the save button it implements the saveunits method withing the settings.ts class.-->
+        <button (click)="saveUnits()" ion-button>Save</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+

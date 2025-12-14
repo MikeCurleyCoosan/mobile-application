@@ -1,0 +1,35 @@
+.home, .settings, .news {
+    background: color($colors, primary);
+    color: color($colors, light);
+    margin-top: 30px;
+   }
+   
+   .toolbar-title {
+       text-align: center;
+   }
+   
+   .temp {
+       font-size: 45px;
+       text-align: center;
+       font-weight: normal;
+   }
+   .location, .icon, .main, .desc, .feelsLike, .hidden, .ionbutton {
+       text-align: center;
+   }
+   .ionbutton{
+       position: center;
+   }
+   
+   .icon img {
+       width: 100px;
+   }
+   
+   .location {
+       font-size: 30px;
+   }
+   .main {
+       font-size: 25px;
+   }
+   .label {
+       color: color($colors, light);
+   }

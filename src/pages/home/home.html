@@ -1,0 +1,48 @@
+<!-- Header area of our home page.-->
+<ion-header>
+  <ion-navbar>
+    <!--Given the title G00376456, my student number as requested-->
+    <ion-title>G00376456</ion-title>
+    <ion-buttons end>
+      <!--We have an icon in the Navbar area at the top of our home page, which opens the settings page.....-->
+      <button ion-button (click)="openSettingsPage()">
+        <ion-icon  name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <!--Using a grid to display our weather information for neatness-->
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h1 class="location">Weather for {{ name }} </h1>
+        <h1 class="hidden" [hidden]="!hidden">City Not Found</h1>
+        <div class ="icon" [hidden]="hidden"><img id="wicon" src="{{ iconUrl }}" alt="Weather icon" height="100" width="100"></div>
+        <h3 class="hidden" [hidden]="!hidden">0</h3>
+        <h3 class ="main" *ngFor="let w of weather" [hidden]="hidden"> {{ w.main }}</h3>
+        <h6 class="desc" *ngFor="let w of weather" [hidden]="hidden"> ({{ w.description }}) </h6>
+        <h3 class="temp">Temperature: {{ temp }}</h3>
+        <h6 class="feelsLike">(feels like {{ feelsLike }})</h6>
+        <button class='newsButton' [disabled]="buttonDisabled" ion-button (click)="loadLocalNews()">News</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+<hr [hidden]="hiddenNews">
+<h2 class="news" [hidden]="hiddenNews"> Total news Stories from {{ country }}: {{ totalResults }} </h2>
+<hr [hidden]="hiddenNews">
+
+  <!--Using a div for each news item-->
+  <div *ngFor="let n of news" [hidden]="hiddenNews">
+    <!--Each clickable link will open up in a new tab using the target="blank" setting-->
+    <a href="{{ n.url }}" target="_blank"><img width="100" height="75" src="{{ n.urlToImage }}"></a>
+    <br>
+    <a class="news" href="{{ n.url }}" target="_blank"> {{ n. title }} </a>
+    <br>
+    <a class="news" href="{{ n.url }}" target="_blank"> {{ n. description }} </a>
+    <hr>
+  </div>
+</ion-content>
